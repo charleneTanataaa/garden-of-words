@@ -1,3 +1,13 @@
-@extends('app')
+@extends('layouts.app')
 
-@extends('footer')
+
+@section('content')
+<x-header/>
+<div>
+    Content goes here.....
+</div>
+<x-footer/>
+@endsection
+
+
+
