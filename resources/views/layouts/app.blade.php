@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Metro Library</title>
+    <title>Garden of Words</title>
 </head>
 <body>
     <header>
-        <h1>Metro Library</h1>
+        <h1>Garden of Words</h1>
     </header>
 
     <main>
@@ -13,7 +13,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Metro Library</p>
+        <p>&copy; 2025 Garden of Words</p>
     </footer>
 </body>
 </html>
