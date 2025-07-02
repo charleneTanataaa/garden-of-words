@@ -10,4 +10,6 @@ Route::post('/letter/store', [LetterController::class, 'store'])->name('letter.s
 
 Route::get('/index', function(){
     return view('index');
+Route::get('/', function () {
+    return view('homepage');
 });
