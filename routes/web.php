@@ -13,3 +13,4 @@ Route::get('/index', function(){
 Route::get('/', function () {
     return view('homepage');
 });
+});
