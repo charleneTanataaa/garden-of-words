@@ -28,27 +28,26 @@
 
   @yield('content')
 
-  <footer class="text-white" style="background-color: #d28f8f;">
-    <div class="container py-4">
-        <div class="row">
-        <div class="col-md-4 text-center text-md-start mb-3 mb-md-0">
-            <img src="{{ asset('images/logo.png') }}" alt="logo" width="60">
-        </div>
-        <div class="col-md-4 text-center">
-            <strong>Garden of Words</strong><br>
-            Write letters and grow your favourite plants!
-        </div>
-        <div class="col-md-4 text-center text-md-end">
-            <strong>Links</strong><br>
-            <a href="/" class="text-white d-block">Home</a>
-            <a href="/pages" class="text-white d-block">Pages</a>
-            <a href="/about" class="text-white d-block">About Us</a>
-        </div>
-        </div>
-        <div class="text-center mt-3 small">
-        &copy;2025 Garden of Words. All rights reserved.
-        </div>
+  <footer class="text-center mt-5">
+    <div class="container d-flex justify-content-around align-items-start">
+      <div>
+        <img src="/images/logo.png" alt="logo" width="60"/>
+      </div>
+      <div>
+        <strong>Garden of Words</strong><br>
+        Write letters and grow your favourite plants!
+      </div>
+      <div>
+        <strong>Links</strong><br>
+        <a href="/" class="text-white d-block">Home</a>
+        <a href="/pages" class="text-white d-block">Pages</a>
+        <a href="/about" class="text-white d-block">About Us</a>
+      </div>
     </div>
-    </footer>
+    <div class="mt-3">
+      &copy;2025 Garden of Words. All rights reserved.
+    </div>
+  </footer>
+
 </body>
 </html>
