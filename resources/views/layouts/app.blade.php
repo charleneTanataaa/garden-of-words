@@ -48,5 +48,6 @@
       &copy;2025 Garden of Words. All rights reserved.
     </div>
   </footer>
+
 </body>
 </html>
