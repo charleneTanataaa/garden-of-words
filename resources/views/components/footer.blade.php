@@ -1,26 +1,20 @@
-
-</head>
-<body>
-  <footer>
-    <div class="footer-container">
-      <div class="footer-left">
-        <img src="./logo.png" alt="Illustration" />
-      </div>
-      <div class="footer-middle">
-        <h2><strong>Garden of Words</strong></h2>
-        <p>Write letters and grow your favourite plants!</p>
-      </div>
-      <div class="footer-right">
-        <h3><strong>Links</strong></h3>
-        <div class="footer-links">
-          <a href="#">Home</a>
-          <a href="#">Pages</a>
-          <a href="#">About Us</a>
+<footer class="text-center mt-5">
+    <div class="container d-flex justify-content-around align-items-start">
+        <div>
+        <img src="/images/logo.png" alt="logo" style="width:150px;"/>
         </div>
-      </div>
+        <div>
+        <strong>Garden of Words</strong><br>
+        Write letters and grow your favourite plants!
+        </div>
+        <div>
+        <strong>Links</strong><br>
+        <a href="/" class="text-white d-block">Home</a>
+        <a href="/pages" class="text-white d-block">Pages</a>
+        <a href="/about" class="text-white d-block">About Us</a>
+        </div>
     </div>
-    <div class="footer-bottom">
-      &copy;2025 Garden of Words. All right reserved
+    <div class="mt-3">
+        &copy;2025 Garden of Words. All rights reserved.
     </div>
-  </footer>
-
+</footer>

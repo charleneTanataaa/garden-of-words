@@ -18,9 +18,12 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
+        'username',
         'email',
         'password',
+        'selected_flower_id',
+        'flower_start_date',
+        'role'
     ];
 
     /**
@@ -45,4 +48,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function flower()
+{
+    return $this->belongsTo(Flower::class, 'selected_flower_id');
+}
+
 }

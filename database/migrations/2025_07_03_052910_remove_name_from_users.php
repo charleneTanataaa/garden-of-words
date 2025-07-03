@@ -12,12 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('username')->unique()->after('name');
-            $table->unsignedBigInteger('selected_flower_id');
-            $table->date('flower_start_date')->nullable();
-            $table->string('otp_code')->nullable();
-            $table->enum('role', ['user', 'admin'])->default('user');
-            $table->foreign('selected_flower_id')->references('id')->on('flowers');
+            $table->dropColumn('name');
         });
     }
 
