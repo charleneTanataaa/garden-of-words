@@ -27,7 +27,7 @@ class AuthController extends Controller
 
         $remember = $request->has('remember');
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
             return redirect()->route('letter.create'); 
         }
@@ -56,6 +56,9 @@ class AuthController extends Controller
         ]);
 
         if($request->has('send_otp')){
+            if(User::where('email', $request->email)->exists()) {
+                return back()->withInput()->with('error', 'Email already signed up.');
+            }
             $otp = rand(100000, 999999);
 
             Session::put('register.email', $request->email);
