@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+<form action="{{ route('logout') }}" method="POST" style="display:inline">
+    @csrf
+    <button type="submit">Logout</button>
+</form>
+
 <div id="letter-container">
     <a href="{{ url()->previous() }}" class="back-link">← Back</a>
 

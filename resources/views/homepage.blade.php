@@ -27,4 +27,6 @@
   <h2 class="section-title">Curious?</h2>
   <a class="btn btn-light mt-3 px-4 py-2" href="#">Visit our community</a>
 </div>
+
+<x-footer></x-footer>
 @endsection
