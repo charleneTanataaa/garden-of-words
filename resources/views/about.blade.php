@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <x-header></x-header>
+    
 
     <style>
         .how-card {
@@ -59,6 +59,8 @@
         }
     </style>
 
+    <x-header></x-header>
+    
     <div style="padding: 60px 20px;">
         <h1 class="text-center mb-4 fw-bold  text-pink" font-size: 2.5rem;">
             About Us
@@ -96,7 +98,7 @@
             <a class="btn text-white start-btn position-absolute start-button-over-image" href="/login">
                 Start now
             </a>
-            <img src="/images/flowerground.jpg" alt="Flower Illustration" class="w-100 full-width-img">
+            <img src="/images/background.jpg" alt="Flower Illustration" class="w-100 full-width-img">
         </div>
 
 
