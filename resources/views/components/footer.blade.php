@@ -10,7 +10,6 @@
         <div>
         <strong>Links</strong><br>
         <a href="/" class="text-white d-block">Home</a>
-        <a href="/pages" class="text-white d-block">Pages</a>
         <a href="/about" class="text-white d-block">About Us</a>
         </div>
     </div>

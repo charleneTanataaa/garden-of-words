@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+<x-header></x-header>
+
 <div class="text-center py-5" style="display:flex; align-items:center; flex-direction:column;">
   <img src="{{ asset('images/logo.png') }}" alt="Garden Logo" class="img-fluid" style="max-width: 600px;">
 <h1 style="padding: 15px; font-family:cursive">Welcome to your garden of words</h1>
