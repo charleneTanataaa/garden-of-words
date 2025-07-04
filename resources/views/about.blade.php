@@ -36,10 +36,31 @@
             background-color: #a55c5c;
             text-decoration:none;
         }
+        .full-width-img {
+            height: 50vh;
+            display: block;
+            border-radius: 0;
+            object-fit:cover;
+            margin: 0;
+
+            padding: 0;
+        }
+
+        .start-button-over-image {
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+
+
+        .text-pink{
+            color: var(--background-color);
+        }
     </style>
 
     <div style="padding: 60px 20px;">
-        <h1 class="text-center mb-4 fw-bold text-muted" font-size: 2.5rem;">
+        <h1 class="text-center mb-4 fw-bold  text-pink" font-size: 2.5rem;">
             About Us
         </h1>
 
@@ -53,7 +74,7 @@
         </div>
 
         <div class="text-center mb-4">
-            <h4 class="fw-semibold text-muted">How It Works</h4>
+            <h4 class="fw-semibold text-pink">How It Works</h4>
         </div>
 
         <div class="d-flex flex-column flex-md-row justify-content-center align-items-stretch gap-5 px-4 px-md-5 " style="max-width:1200px; margin:0 auto;">
@@ -71,9 +92,14 @@
             </div>
         </div>
 
-        <div class="text-center">
-            <a class="btn text-white start-btn btn-shadow" href="/login"> Start now </a>
+        <div class="position-relative w-100 h-50 mt-5">
+            <a class="btn text-white start-btn position-absolute start-button-over-image" href="/login">
+                Start now
+            </a>
+            <img src="/images/flowerground.jpg" alt="Flower Illustration" class="w-100 full-width-img">
         </div>
+
+
     </div>
 
     <x-footer></x-footer>
