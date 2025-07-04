@@ -20,9 +20,6 @@ Route::post('/register/setup', [AuthController::class, 'handleSignup'])->name('r
 
 Route::get('/about', [StaticPageController::class, 'about'])->name('about');
 
-Route::get('/index', function(){
-    return view('index');
-});
 Route::get('/', function () {
     return view('homepage');
 });
