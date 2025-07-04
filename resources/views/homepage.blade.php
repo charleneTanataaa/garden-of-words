@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<x-header></x-header>
 <div class="text-center py-5">
   <h1>Welcome to your garden of words</h1>
   <div class="d-flex justify-content-center mt-4 gap-3">
