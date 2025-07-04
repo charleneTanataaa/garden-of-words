@@ -2,11 +2,13 @@
 
 @section('content')
 <x-header></x-header>
-<div class="text-center py-5">
-  <h1>Welcome to your garden of words</h1>
-  <div class="d-flex justify-content-center mt-4 gap-3">
-    <a class="btn btn-green px-4" href="#">Create Garden</a>
-    <a class="btn btn-green px-4" href="#">Visit Garden</a>
+
+<div class="text-center py-5" style="display:flex; align-items:center; flex-direction:column;">
+  <img src="{{ asset('images/logo.png') }}" alt="Garden Logo" class="img-fluid" style="max-width: 600px;">
+<h1 style="padding: 15px; font-family:cursive">Welcome to your garden of words</h1>
+  <div class="d-flex justify-content-center mt-4 gap-5">
+    <a class="btn btn-green px-5 py-3 fs-5" href="#">Create Garden</a>
+    <a class="btn btn-green px-5 py-3 fs-5" href="#">Visit Garden</a>
   </div>
 </div>
 
@@ -15,7 +17,7 @@
     <div class="col-md-6 p-4">
       <h2 class="section-title">What are we?</h2>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et quam tellus...
+        Lorem ipsum dolor sit amet
       </p>
     </div>
     <div class="col-md-6 bg-danger-subtle">
@@ -24,9 +26,9 @@
   </div>
 </div>
 
-<div class="text-center py-5">
-  <h2 class="section-title">Curious?</h2>
-  <a class="btn btn-light mt-3 px-4 py-2" href="#">Visit our community</a>
+<div class="d-flex flex-column justify-content-center align-items-center" style="background-image: url('{{ asset('images/background.jpg') }}'); background-size: cover; background-position: center; height: 650px;">
+  <h2 class="section-title text-center" style="font-family: cursive">Curious?</h2>
+  <a class="btn btn-light mt-3 px-10 py-2 fs-6" style="background-color: #6277AC; color: #FFFFFF; width: 200px; height:70px; text-align:center; outline: none; box-shadow: 7px 6px 4px 0px rgba(60, 55, 55, 0.25); border:none;" href="#">Visit our community</a>
 </div>
 
 <x-footer></x-footer>
