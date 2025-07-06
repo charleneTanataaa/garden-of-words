@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\LetterController;
+use App\Http\Controllers\StaticPageController;
 
 Route::get('/', [HomePageController::class, 'index']);
 
@@ -17,10 +18,8 @@ Route::post('/register/email', [AuthController::class, 'handleEmailOrOtp'])->nam
 Route::get('/register/setup', [AuthController::class, 'showSignupForm'])->name('register.setup.form');
 Route::post('/register/setup', [AuthController::class, 'handleSignup'])->name('register.setup');
 
+Route::get('/about', [StaticPageController::class, 'about'])->name('about');
 
-Route::get('/index', function(){
-    return view('index');
-});
 Route::get('/', function () {
     return view('homepage');
 });
