@@ -130,6 +130,7 @@
     document.addEventListener('DOMContentLoaded', function () {
         const swatches = document.querySelectorAll('.color-swatch');
         const colorInput = document.getElementById('selected-color-input');
+        const form = document.querySelector('.letter-form');
 
         swatches.forEach(swatch => {
             swatch.addEventListener('click', () => {
@@ -137,6 +138,13 @@
                 swatch.classList.add('selected');
                 colorInput.value = swatch.getAttribute('data-color');
             });
+        });
+
+        form.addEventListener('submit', function (e) {
+            if (!colorInput.value) {
+                e.preventDefault();
+                alert("Please select a color before submitting.");
+            }
         });
     });
 </script>
