@@ -1,7 +1,7 @@
 <footer class="text-center mt-5">
     <div class="container d-flex justify-content-around align-items-start">
         <div>
-        <img src="/images/logo.png" alt="logo" style="width:150px;"/>
+        <img src="/images/main_logo.png" alt="logo" style="width:150px;"/>
         </div>
         <div>
         <strong>Garden of Words</strong><br>

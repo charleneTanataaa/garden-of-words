@@ -28,3 +28,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/letter/create', [LetterController::class, 'create'])->name('letter.create');
     Route::post('/letter/store', [LetterController::class, 'store'])->name('letter.store');
 });
+
+Route::get('/create', function () {
+    return view('letter.create');
+});
+
+Route::get('/show', function () {
+    return view('letter.show');
+});
