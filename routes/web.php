@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\LetterController;
 use App\Http\Controllers\StaticPageController;
+use App\Http\Controllers\FlowerController;
 
 Route::get('/', [HomePageController::class, 'index']);
 
@@ -33,6 +34,4 @@ Route::get('/create', function () {
     return view('letter.create');
 });
 
-Route::get('/show', function () {
-    return view('letter.show');
-});
+Route::get('/letters', [LetterController::class, 'show'])->name('letter.show');

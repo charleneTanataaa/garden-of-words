@@ -18,14 +18,25 @@ class LetterController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
+            'color' => 'required|string',
         ]);
 
         Letter::create([
             'user_id' => Auth::id(),
             'title' => $request->title,
             'content' => $request->content,
+            'color' => $request->color,
         ]);
 
         return redirect()->route('letter.create')->with('success', 'Letter saved!');
     }
+
+    public function show()
+    {
+        $letters = Letter::all();
+
+        return view('letter.show', compact('letters'));
+    }
+
 }
+
