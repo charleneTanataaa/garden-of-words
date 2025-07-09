@@ -24,8 +24,8 @@ class DatabaseSeeder extends Seeder
             ['name' => 'Daisy'],
             ['name' => 'Lavender'],
             ['name' => 'Orchid'],
-            ['name' => 'Peony'],
-            ['name' => 'Marigold'],
+            ['name' => 'Blue Bell'],
+            ['name' => 'Canna Lily'],
         ]);
 
         User::factory()->create([

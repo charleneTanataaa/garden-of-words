@@ -44,37 +44,23 @@ class AuthController extends Controller
         return redirect('/login');
     }
 
-    public function showEmailorOtpForm()
+    public function showEmail()
     {
-        return view('auth.email_otp');
+        return view('auth.register');
     }
 
-    public function handleEmailorOtp(Request $request)
+    public function handleEmail(Request $request)
     {
         $request->validate([
             'email' => 'required|email'
         ]);
 
-        if($request->has('send_otp')){
             if(User::where('email', $request->email)->exists()) {
                 return back()->withInput()->with('error', 'Email already signed up.');
             }
-            $otp = rand(100000, 999999);
 
             Session::put('register.email', $request->email);
-            Session::put('register.otp', $otp);
-
-            return back()
-            ->withInput()
-            ->with('error', "OTP Code: $otp");
-        }
-
-        if($request->has('verify_otp')){
-            if($request->otp == Session::get('register.otp')){
-                return redirect()->route('register.setup.form');
-            }
-            return back()->with('error', 'Invalid OTP code');
-        }
+            return redirect()->route('register.setup.form');
     }
 
     public function showSignUpForm(){
