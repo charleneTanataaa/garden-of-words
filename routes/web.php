@@ -14,8 +14,8 @@ Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login.form
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/register/email', [AuthController::class, 'showEmailOrOtpForm'])->name('register.email.form');
-Route::post('/register/email', [AuthController::class, 'handleEmailOrOtp'])->name('register.email.handle');
+Route::get('/register', [AuthController::class, 'showEmail'])->name('register.email.form');
+Route::post('/register', [AuthController::class, 'handleEmail'])->name('register.email.handle');
 Route::get('/register/setup', [AuthController::class, 'showSignupForm'])->name('register.setup.form');
 Route::post('/register/setup', [AuthController::class, 'handleSignup'])->name('register.setup');
 

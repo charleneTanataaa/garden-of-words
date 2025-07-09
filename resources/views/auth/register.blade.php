@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="d-flex justify-content-center align-items-center vh-100" style="background-color: #ffe5e5;">
+<div class="d-flex justify-content-center align-items-center vh-100" style="background-color: #ffd6d6;">
     <div class="card p-4 shadow" style="width: 100%; max-width: 450px; border-radius: 15px;">
         <div class="text-center mb-3 ">
             <img src="/images/logo.png" alt="Logo" style="max-height: 100px;">
@@ -18,26 +18,24 @@
         <form method="POST" action="{{ route('register.email.handle') }}">
             @csrf
             <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
+                <label for="email" class="form-label" >Email</label>
                 <input type="email" name="email" class="form-control"
-                    value="{{ old('email', session('register.email')) }}" required>
+                    placeholder="Enter your email" value="{{ old('email', session('register.email')) }}" required>
                 @error('email')
                     <div class="text-danger small mt-1">{{ $message }}</div>
                 @enderror
 
             </div>
 
-            <div class="row mb-3">
-                <div class="col-6">
-                    <label for="otp" class="form-label">OTP Code</label>
-                    <input type="text" name="otp" class="form-control">
-                </div>
-                <div class="col-6 d-flex align-items-end">
-                    <button name="send_otp" class="btn btn-warning w-100" type="submit">Send OTP code</button>
-                </div>
-            </div>
+            <button class="btn w-100" style="background-color: #F8F3BA" type="submit">Submit</button>
 
-            <button name="verify_otp" class="btn btn-warning w-100" type="submit">Submit</button>
+            <div class="text-center mt-2">
+                <small>Already have an account? 
+                <a href="{{ route('login.form') }}" class="text-decoration-none text-warning fw-semibold" style="transition: 0.2s ease">
+                    Login
+                </a>
+            </small>
+            </div>
         </form>
     </div>
 </div>

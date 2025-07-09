@@ -6,10 +6,17 @@
 <div class="text-center py-5" style="display:flex; align-items:center; flex-direction:column;">
   <img src="{{ asset('images/logo.png') }}" alt="Garden Logo" class="img-fluid" style="max-width: 600px;">
 <h1 style="padding: 15px; font-family:cursive">Welcome to your garden of words</h1>
+@if(Auth::check())  
   <div class="d-flex justify-content-center mt-4 gap-5">
     <a class="btn btn-green px-5 py-3 fs-5" href="/create">Create Garden</a>
     <a class="btn btn-green px-5 py-3 fs-5" href="/letters">Visit Garden</a>
   </div>
+@else
+  <div class="d-flex justify-content-center mt-4 gap-5">
+    <a class="btn btn-green px-5 py-3 fs-5" href="/login">Create Garden</a>
+    <a class="btn btn-green px-5 py-3 fs-5" href="/login">Visit Garden</a>
+  </div>
+@endif
 </div>
 
 <div class="container my-5">
