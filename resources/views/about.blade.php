@@ -59,7 +59,7 @@
         }
     </style>
 
-    <x-header></x-header>
+    <x-header/>
     
     <div style="padding: 60px 20px;">
         <h1 class="text-center mb-4 fw-bold  text-pink" font-size: 2.5rem;">
