@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@if(Auth::check())
     <div class="nav-letter">
         <form method="post" action="{{  route('logout') }}">
             @csrf
@@ -31,6 +32,10 @@
             @endforeach
         @endif
     </div>
+
+@else
+<script>window.location.href = "{{ route('login.form') }}";</script>
+@endif
 
     <style>
         #container_letter {

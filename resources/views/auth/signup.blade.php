@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+<a href="{{  route('register.email.form') }}" class="back-link">← Back</a>
+
 <div class="d-flex justify-content-center align-items-center vh-100" style="background-color: #fff6f6;">
     <div class="card p-4 shadow" 
         style="width: 100%; max-width: 500px; border-radius: 15px; max-height: 90vh; overflow-y: auto;">
@@ -9,11 +11,21 @@
 
         <form method="POST" action="{{ route('register.setup') }}">
             @csrf
-
+             @if ($errors->has('username'))
+                <div style="color: red; font-size: 0.9rem;">
+                    {{ $errors->first('username') }}
+                </div>
+            @endif
             <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
-                <input type="text" id="username" name="username" class="form-control" required>
+                <input type="text" id="username" name="username" class="form-control" required value="{{ old('username') }}">
             </div>
+
+             @if ($errors->has('password'))
+                <div style="color: red; font-size: 0.9rem;">
+                    {{ $errors->first('password') }}
+                </div>
+            @endif
 
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
@@ -54,7 +66,7 @@
 
 
                 </div>
-                @error('flower')
+                @error('selected_flower_id')
                     <div class="text-danger small mt-2">{{ $message }}</div>
                 @enderror
             </div>

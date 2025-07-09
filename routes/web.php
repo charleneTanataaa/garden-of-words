@@ -7,6 +7,9 @@ use App\Http\Controllers\LetterController;
 use App\Http\Controllers\StaticPageController;
 use App\Http\Controllers\FlowerController;
 
+
+Route::get('/', [HomePageController::class, 'index'])->name('homepage');
+
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login.form');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
@@ -18,9 +21,6 @@ Route::post('/register/setup', [AuthController::class, 'handleSignup'])->name('r
 
 Route::get('/about', [StaticPageController::class, 'about'])->name('about');
 
-Route::get('/', function () {
-    return view('homepage');
-});
 
 Route::middleware('auth')->group(function () {
     Route::get('/letter/create', [LetterController::class, 'create'])->name('letter.create');

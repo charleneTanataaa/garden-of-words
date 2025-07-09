@@ -89,7 +89,7 @@ class AuthController extends Controller
 
         Auth::login($user);
         Session::forget(['register.email', 'register.otp']);
-        return redirect()->route('letter.create');
+        return redirect()->route('letter.show');
     }
     
 }

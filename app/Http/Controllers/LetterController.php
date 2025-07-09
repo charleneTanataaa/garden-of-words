@@ -33,7 +33,9 @@ class LetterController extends Controller
 
     public function show()
     {
-        $letters = Letter::all();
+        // $letters = Letter::all();
+
+        $letters = Letter::where('user_id', Auth::id())->get();
 
         return view('letter.show', compact('letters'));
     }
