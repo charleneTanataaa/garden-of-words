@@ -16,7 +16,7 @@ class LetterController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|string|max:255',
+            'title' => 'required|string|max:23',
             'content' => 'required|string',
             'color' => 'required|string',
         ]);
@@ -38,5 +38,25 @@ class LetterController extends Controller
         return view('letter.show', compact('letters'));
     }
 
+    public function edit(Letter $letter){
+        return view('letter.create', compact('letter'));
+    }
+
+    public function update(Request $request, Letter $letter){
+        $request->validate([
+                'title' => 'required|string|max:23',
+                'content' => 'required',
+                'color' => 'required|string',
+            ]);
+
+        $letter->update($request->only('title', 'content', 'color'));
+
+        return redirect()->route('letter.show')->with('success', 'Letter updated successfully!');    
+    }
+
+    public function destroy(Letter $letter){
+        $letter->delete();
+        return redirect()->route('letter.show')->with('success', 'Letter updated successfully!');    
+    }
 }
 

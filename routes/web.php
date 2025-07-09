@@ -7,9 +7,6 @@ use App\Http\Controllers\LetterController;
 use App\Http\Controllers\StaticPageController;
 use App\Http\Controllers\FlowerController;
 
-Route::get('/', [HomePageController::class, 'index']);
-
-
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login.form');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
@@ -28,10 +25,10 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/letter/create', [LetterController::class, 'create'])->name('letter.create');
     Route::post('/letter/store', [LetterController::class, 'store'])->name('letter.store');
+
+    Route::get('/letter/{letter}/edit', [LetterController::class, 'edit'])->name('letter.edit');
+    Route::put('/letter/{letter}', [LetterController::class, 'update'])->name('letter.update');
 });
 
-Route::get('/create', function () {
-    return view('letter.create');
-});
-
+Route::delete('/letter/{letter}', [LetterController::class, 'destroy'])->name('letter.destroy');
 Route::get('/letters', [LetterController::class, 'show'])->name('letter.show');
