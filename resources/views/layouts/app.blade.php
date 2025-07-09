@@ -5,6 +5,9 @@
   <meta charset="UTF-8">
   <title>Garden of Words</title>
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
   @vite(['resources/css/app.css', 'resources/js/app.js'])
   <style>
     body {
@@ -29,8 +32,6 @@
 <body>
 
   @yield('content')
-
-  
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

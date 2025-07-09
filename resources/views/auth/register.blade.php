@@ -3,9 +3,10 @@
 @section('content')
 <div class="d-flex justify-content-center align-items-center vh-100" style="background-color: #ffd6d6;">
     <div class="card p-4 shadow" style="width: 100%; max-width: 450px; border-radius: 15px;">
-        <div class="text-center mb-3 ">
-            <img src="/images/logo.png" alt="Logo" style="max-height: 100px;">
+        <div class="text-center mb-3">
+            <img src="/images/logo.png" alt="Logo" style="max-height: 100px;" class="mx-auto d-block">
         </div>
+
         <h3 class="text-center mb-3">Sign Up</h3>
 
         @if (session('success'))

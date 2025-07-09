@@ -5,7 +5,7 @@
 }
 .home-container{
     width: 100vw;
-    height:100vh;
+    min-height:100vh;
     background-color: pink;
     margin-bottom: 10px;
 }
@@ -25,7 +25,7 @@ body {
 #letter-container{
     font-family: cursive;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -101,4 +101,27 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: background-color 0.2s ease;
 }
+nav.navbar {
+  padding: 10px 20px !important;
+}
+.flower-label {
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
 
+.flower-img {
+    max-width: 100%;
+    max-height: 100px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.btn-check:checked + .flower-label {
+    border-color: #F8F3BA;
+    background-color: #fffef0;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+}
