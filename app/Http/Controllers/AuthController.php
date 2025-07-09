@@ -29,7 +29,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
-            return redirect()->route('letter.create'); 
+            return redirect()->route('letter.show'); 
         }
 
         return back()->with('error', 'Invalid credentials.');
@@ -89,7 +89,7 @@ class AuthController extends Controller
 
         Auth::login($user);
         Session::forget(['register.email', 'register.otp']);
-        return redirect()->route('letter.create');
+        return redirect()->route('letter.show');
     }
     
 }

@@ -28,7 +28,6 @@
       </p>
     </div>
     <div class="col-md-6 bg-danger-subtle">
-      <!-- Pink box for illustration -->
     </div>
   </div>
 </div>

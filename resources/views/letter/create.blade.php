@@ -4,16 +4,33 @@
 
 
 <div class="letter-wrapper">
-<a href="{{ url()->previous() }}" class="back-link">← Back</a>
+<a href="{{  route('letter.show') }}" class="back-link">← Back</a>
 
-    <form action="{{ route('letter.store') }}" method="POST" class="letter-form">
+    <form 
+    action="{{ isset($letter) ? route('letter.update', $letter->id) : route('letter.store') }}" 
+    method="POST"
+    class="letter-form">
         @csrf
-
+        @if(isset($letter))
+            @method('PUT')
+        @endif
+        
         <div class="form-left">
-            <h2>Create your letter</h2>
-            <input type="text" name="title" id="title" placeholder="Title" required>
-            <textarea name="content" id="content" rows="6" placeholder="Type your letter here..." required></textarea>
-            <input type="hidden" name="color" id="selected-color-input">
+            <h2>{{ isset($letter) ? 'Update' : 'Create' }} your letter</h2>
+            @if ($errors->has('title'))
+                <div style="color: red; font-size: 0.9rem;">
+                    {{ $errors->first('title') }}
+                </div>
+            @endif
+            <input 
+                type="text" 
+                name="title" 
+                id="title" 
+                placeholder="Title" required
+                value="{{ old('title', $letter->title ?? '') }}">
+        
+            <textarea name="content" id="content" rows="6" placeholder="Type your letter here..." required>{{ old('content', $letter->content ?? '') }}</textarea>
+            <input type="hidden" name="color" id="selected-color-input" value="{{ old('color', $letter->color ?? '') }}">
             <button type="submit">Submit Letter</button>
         </div>
 
@@ -129,6 +146,13 @@
         const colorInput = document.getElementById('selected-color-input');
         const form = document.querySelector('.letter-form');
 
+        const currentColor = colorInput.value;
+        swatches.forEach(swatch => {
+            if (swatch.getAttribute('data-color') === currentColor) {
+                swatch.classList.add('selected');
+            }
+        });
+
         swatches.forEach(swatch => {
             swatch.addEventListener('click', () => {
                 swatches.forEach(s => s.classList.remove('selected'));
@@ -144,5 +168,7 @@
             }
         });
     });
+
+
 </script>
 @endsection
