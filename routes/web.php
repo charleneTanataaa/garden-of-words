@@ -32,3 +32,4 @@ Route::middleware('auth')->group(function () {
 
 Route::delete('/letter/{letter}', [LetterController::class, 'destroy'])->name('letter.destroy');
 Route::get('/letters', [LetterController::class, 'show'])->name('letter.show');
+Route::get('/letters/all', [LetterController::class, 'showAll'])->name('letter.all');

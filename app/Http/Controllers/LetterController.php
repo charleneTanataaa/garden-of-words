@@ -36,9 +36,11 @@ class LetterController extends Controller
         // $letters = Letter::all();
 
         $letters = Letter::where('user_id', Auth::id())->get();
+        $heading = 'My Letters';
 
-        return view('letter.show', compact('letters'));
+        return view('letter.show', compact('letters', 'heading'));
     }
+
 
     public function edit(Letter $letter){
         return view('letter.create', compact('letter'));
@@ -60,5 +62,13 @@ class LetterController extends Controller
         $letter->delete();
         return redirect()->route('letter.show')->with('success', 'Letter updated successfully!');    
     }
+
+    public function showAll()
+    {
+        $letters = Letter::with('user')->latest()->get();
+        $heading = 'Community Letters';
+        return view('letter.show', compact('letters', 'heading'));
+    }
+
 }
 

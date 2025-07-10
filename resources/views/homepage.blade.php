@@ -34,7 +34,7 @@
 
 <div class="d-flex flex-column justify-content-center align-items-center" style="background-image: url('{{ asset('images/background.jpg') }}'); background-size: cover; background-position: center; height: 650px;">
   <h2 class="section-title text-center" style="font-family: cursive">Curious?</h2>
-  <a class="btn btn-light mt-3 px-10 py-2 fs-4" style="display:flex; align-items: center; justify-content: center; background-color: #6277AC; color: #FFFFFF; width: 300px; height:70px; text-align:center; outline: none; box-shadow: 7px 6px 4px 0px rgba(60, 55, 55, 0.25); border:none;" href="#">Visit our community</a>
+  <a class="btn btn-light mt-3 px-10 py-2 fs-4" style="display:flex; align-items: center; justify-content: center; background-color: #6277AC; color: #FFFFFF; width: 300px; height:70px; text-align:center; outline: none; box-shadow: 7px 6px 4px 0px rgba(60, 55, 55, 0.25); border:none;" href={{ route('letter.all') }}>Visit our community</a>
 </div>
 
 <x-footer></x-footer>
