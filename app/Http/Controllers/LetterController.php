@@ -63,12 +63,40 @@ class LetterController extends Controller
         return redirect()->route('letter.show')->with('success', 'Letter updated successfully!');    
     }
 
-    public function showAll()
+    public function showAll(Request $request)
     {
-        $letters = Letter::with('user')->latest()->get();
+        $query = Letter::query();
+
+        if ($request->filled('title')) {
+            $query->where('title', 'LIKE', '%' . $request->input('title') . '%');
+        }
+
+        if ($request->filled('date')) {
+            $query->whereDate('created_at', $request->input('date'));
+        }
+
+        $sortDirection = $request->input('sort', 'asc');
+        $query->orderBy('created_at', $sortDirection);
+
+        $letters = $query->get();
         $heading = 'Community Letters';
+
         return view('letter.show', compact('letters', 'heading'));
     }
+
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        $letters = Letter::where('title', 'LIKE', "%{$query}%")->get();
+
+        $heading = session('last_heading', 'My Letters');
+
+        return view('letter.show', compact('letters', 'heading'));
+    }
+
+
 
 }
 

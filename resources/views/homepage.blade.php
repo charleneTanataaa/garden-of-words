@@ -24,7 +24,9 @@
     <div class="col-md-6 p-4">
       <h2 class="section-title">What are we?</h2>
       <p>
-        Lorem ipsum dolor sit amet
+        We’re a small project with a big mission: to help people write more and scroll less. Whether it’s journaling, storytelling, or just getting your thoughts out, we’re here to make writing easy, fun, and part of your daily routine.
+
+With a sprinkle of sunshine and a garden full of prompts, we’re helping writing habits take root, turning “I should write more” into “I’m blooming with ideas!”
       </p>
     </div>
     <div class="col-md-6 bg-danger-subtle">

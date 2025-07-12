@@ -5,11 +5,54 @@
     <div class="nav-letter">
         <form method="post" action="{{ route('logout') }}">
             @csrf
-            <a href="{{ url()->previous() }}" class="btn">← Back</a>
+            <a href="{{ route('homepage') }}" class="btn">← Back</a>
         </form>
         <h1 style="text-align:center; margin: 10px;">{{ $heading }}</h1>
         <a href="{{ route('letter.create') }}" class="btn">Write New Letter</a>
     </div>
+
+    <div style="padding-top: 120px;">
+    <form action="{{ route('letter.search') }}" method="GET" class="mb-4 d-flex justify-content-center">
+        <input type="text" name="query" placeholder="Search letters..." class="form-control w-50 me-2" value="{{ request('query') }}">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+    </div>
+
+    <div class="container mt-2">
+        <form action="{{ route('letter.all') }}" method="GET">
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+
+                <div class="d-flex align-items-center gap-2">
+                    <strong>Filter by:</strong>
+                    <input type="date" name="date" value="{{ request('date') }}" class="form-control" style="width: 160px;">
+                </div>
+
+                <div class="d-flex align-items-center gap-2">
+                    <strong>Sort by:</strong>
+
+                    <select name="sort" class="form-select" style="width: 140px;">
+                        <option value="asc" {{ request('sort') === 'asc' ? 'selected' : '' }}>ascending</option>
+                        <option value="desc" {{ request('sort') === 'desc' ? 'selected' : '' }}>descending</option>
+                    </select>
+
+                    <button type="submit" class="btn px-3 py-2" style="
+                        background-color: #F9F7F5;
+                        color: black;
+                        border: black solid 1px;
+                        border-radius: 8px;
+                        font-weight: 500;
+                        box-shadow: 2px 2px 6px rgba(0,0,0,0.15);
+                        transition: all 0.2s ease-in-out;
+                    ">
+                        Apply
+                    </button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+
 
     <div id="container_letter">
         @if($letters->isEmpty())
@@ -44,6 +87,7 @@
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         padding: 20px;
+        padding-top:10px;
         gap: 16px;
         max-width: 1200px;
         margin: 0 auto;
