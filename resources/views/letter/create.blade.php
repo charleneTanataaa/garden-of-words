@@ -4,7 +4,7 @@
 
 
 <div class="letter-wrapper">
-<a href="{{  route('letter.show') }}" class="back-link">← Back</a>
+<a href="{{ session('letter_prev_url', route('letter.show')) }}" class="back-link">← Back</a>
 
     <form 
     action="{{ isset($letter) ? route('letter.update', $letter->id) : route('letter.store') }}" 
@@ -29,7 +29,7 @@
                 placeholder="Title" required
                 value="{{ old('title', $letter->title ?? '') }}">
         
-            <textarea name="content" id="content" rows="6" placeholder="Type your letter here..." required>{{ old('content', $letter->content ?? '') }}</textarea>
+            <textarea name="content" id="content" rows="6" maxlength="300" placeholder="Type your letter here..." required>{{ old('content', $letter->content ?? '') }}</textarea>
             <input type="hidden" name="color" id="selected-color-input" value="{{ old('color', $letter->color ?? '') }}">
             <button type="submit">Submit Letter</button>
         </div>
@@ -50,9 +50,12 @@
 
 <style>
     .letter-wrapper {
-        max-width: 900px;
-        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh; /* Full screen height */
         padding: 40px 20px;
+        box-sizing: border-box;
     }
 
     .letter-form {

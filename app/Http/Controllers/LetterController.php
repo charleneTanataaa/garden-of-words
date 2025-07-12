@@ -10,6 +10,9 @@ class LetterController extends Controller
 {
     public function create()
     {
+        if (!str_contains(url()->previous(), route('letter.create'))) {
+            session(['letter_prev_url' => url()->previous()]);
+        }
         return view('letter.create');
     }
 
@@ -28,7 +31,9 @@ class LetterController extends Controller
             'color' => $request->color,
         ]);
 
-        return redirect()->route('letter.create')->with('success', 'Letter saved!');
+        $redirect = session('letter_prev_url', route('letter.show'));
+        session()->forget('letter_prev_url');
+        return redirect($redirect)->with('success', 'Letter saved!');
     }
 
     public function show(Request $request)
