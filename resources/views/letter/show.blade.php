@@ -19,8 +19,8 @@
     </div>
 
     <div class="container mt-2">
-        <form action="{{ route('letter.all') }}" method="GET">
-            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <form action="{{ request()->routeIs('letter.all') ? route('letter.all') : route('letter.show') }}" method="GET">           
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
 
                 <div class="d-flex align-items-center gap-2">
                     <strong>Filter by:</strong>

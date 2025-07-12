@@ -31,15 +31,23 @@ class LetterController extends Controller
         return redirect()->route('letter.create')->with('success', 'Letter saved!');
     }
 
-    public function show()
+    public function show(Request $request)
     {
-        // $letters = Letter::all();
+        $query = Letter::where('user_id', Auth::id());
 
-        $letters = Letter::where('user_id', Auth::id())->get();
+        if ($request->filled('date')) {
+            $query->whereDate('created_at', $request->input('date'));
+        }
+
+        $sortDirection = $request->input('sort', 'asc');
+        $query->orderBy('created_at', $sortDirection);
+
+        $letters = $query->get();
         $heading = 'My Letters';
 
         return view('letter.show', compact('letters', 'heading'));
     }
+
 
 
     public function edit(Letter $letter){
@@ -66,10 +74,6 @@ class LetterController extends Controller
     public function showAll(Request $request)
     {
         $query = Letter::query();
-
-        if ($request->filled('title')) {
-            $query->where('title', 'LIKE', '%' . $request->input('title') . '%');
-        }
 
         if ($request->filled('date')) {
             $query->whereDate('created_at', $request->input('date'));
