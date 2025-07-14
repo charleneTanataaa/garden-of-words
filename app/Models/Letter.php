@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Letter extends Model
 {
-    protected $fillable = ['user_id', 'title', 'content', 'color'];
+    protected $fillable = ['user_id', 'title', 'content', 'color', 'visibility'];
 
     public function user(): BelongsTo
     {

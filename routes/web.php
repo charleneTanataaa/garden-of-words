@@ -6,7 +6,7 @@ use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\LetterController;
 use App\Http\Controllers\StaticPageController;
 use App\Http\Controllers\FlowerController;
-
+use App\Http\Controllers\GardenController;
 
 Route::get('/', [HomePageController::class, 'index'])->name('homepage');
 
@@ -34,3 +34,5 @@ Route::delete('/letter/{letter}', [LetterController::class, 'destroy'])->name('l
 Route::get('/letters', [LetterController::class, 'show'])->name('letter.show');
 Route::get('/letters/all', [LetterController::class, 'showAll'])->name('letter.all');
 Route::get('/letters/search', [LetterController::class, 'search'])->name('letter.search');
+
+Route::get('/garden', [GardenController::class, 'index'])->name('garden');

@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
             ['name' => 'Daisy'],
             ['name' => 'Lavender'],
             ['name' => 'Orchid'],
-            ['name' => 'Blue Bell'],
+            ['name' => 'Bluebell'],
             ['name' => 'Canna Lily'],
         ]);
 
