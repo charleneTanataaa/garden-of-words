@@ -10,17 +10,20 @@ class GardenController extends Controller
 {
     public function index(){
         $user = Auth::user();
-        $garden = Garden::where('user_id', $user->id)->latest()->first();
+        $gardens = Garden::where('user_id', $user->id)
+            ->with('flower')
+            ->orderByDesc('date_grown')
+            ->get();
 
-        if(!$garden){
-            return view('garden', ['garden' => null]);
+        foreach($gardens as $garden)
+        {
+            $flower = $garden->flower;
+            if($flower)
+            {
+                $flower->image = strtolower(str_replace(' ', '_', $flower->name)) . '.png';
+            }
         }
-
-        $flower = $garden->flower;
-        $flower->image = strtolower(str_replace(' ', '_', $flower->name)) . '.png';
-        $startDate = $garden->date_grown;
-        $finishDate = \Carbon\Carbon::parse($startDate)->addDays(7);
-
-        return view('garden', compact('garden', 'flower', 'startDate', 'finishDate'));
+        
+        return view('garden', compact('gardens'));
     }
 }
