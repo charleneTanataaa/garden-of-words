@@ -95,9 +95,17 @@
         </div>
 
         <div class="position-relative w-100 h-50 mt-5">
-            <a class="btn text-white start-btn position-absolute start-button-over-image" href="/login">
+            @if(Auth::check())
+                <a class="btn text-white start-btn position-absolute start-button-over-image" href="/letter/create">
                 Start now
-            </a>
+                </a>
+                
+            @else
+                <a class="btn text-white start-btn position-absolute start-button-over-image" href="/login">
+                Start now
+                </a>
+            @endif
+            
             <img src="/images/background.jpg" alt="Flower Illustration" class="w-100 full-width-img">
         </div>
 

@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Garden;
 use App\Models\Letter;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class LetterController extends Controller
 {
+    
     public function create()
     {
         if (!str_contains(url()->previous(), route('letter.create'))) {
@@ -22,6 +24,7 @@ class LetterController extends Controller
             'title' => 'required|string|max:23',
             'content' => 'required|string',
             'color' => 'required|string',
+            'visibility' => 'required|in:public,private',
         ]);
 
         Letter::create([
@@ -29,8 +32,21 @@ class LetterController extends Controller
             'title' => $request->title,
             'content' => $request->content,
             'color' => $request->color,
+            'visibility' => $request->visibility,
         ]);
+        $user = Auth::user();
+        $garden = Garden::where('user_id', $user->id)->latest()->first();
 
+        if (!$garden || $garden->count >= 7) {
+            Garden::create([
+                'user_id' => $user->id,
+                'flower_id' => $user->selected_flower_id, 
+                'date_grown' => now(),
+                'count' => 1,
+            ]);
+        } else {
+            $garden->increment('count');
+        }
         $redirect = session('letter_prev_url', route('letter.show'));
         session()->forget('letter_prev_url');
         return redirect($redirect)->with('success', 'Letter saved!');
@@ -64,9 +80,10 @@ class LetterController extends Controller
                 'title' => 'required|string|max:23',
                 'content' => 'required',
                 'color' => 'required|string',
+                'visibility'=>'required|in:public,private',
             ]);
 
-        $letter->update($request->only('title', 'content', 'color'));
+        $letter->update($request->only('title', 'content', 'color', 'visibility'));
 
         return redirect()->route('letter.show')->with('success', 'Letter updated successfully!');    
     }
@@ -78,7 +95,7 @@ class LetterController extends Controller
 
     public function showAll(Request $request)
     {
-        $query = Letter::query();
+        $query = Letter::where('visibility', 'public');
 
         if ($request->filled('date')) {
             $query->whereDate('created_at', $request->input('date'));
@@ -96,16 +113,20 @@ class LetterController extends Controller
 
     public function search(Request $request)
     {
-        $query = $request->input('query');
+        $queryText = $request->input('query');
 
-        $letters = Letter::where('title', 'LIKE', "%{$query}%")->get();
+        $letters = Letter::where(function ($query) use ($queryText) {
+            $query->where('visibility', 'public');
 
-        $heading = session('last_heading', 'My Letters');
+            if (Auth::check()) {
+                $query->orWhere('user_id', Auth::id());
+            }
+        })->where('title', 'LIKE', "%{$queryText}%")
+        ->orderBy('created_at', 'desc')
+        ->get();
+
+        $heading = Auth::check() ? 'Search Results' : 'Public Search Results';
 
         return view('letter.show', compact('letters', 'heading'));
     }
-
-
-
 }
-

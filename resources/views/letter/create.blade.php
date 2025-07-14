@@ -30,11 +30,35 @@
                 value="{{ old('title', $letter->title ?? '') }}">
         
             <textarea name="content" id="content" rows="6" maxlength="300" placeholder="Type your letter here..." required>{{ old('content', $letter->content ?? '') }}</textarea>
+            <div class="mb-3">
+        </div>
+        
+        <div class="mb-3">                
+                <div class="form-check form-switch">
+                    <input 
+                        class="form-check-input" 
+                        type="checkbox" 
+                        id="visibility-toggle" 
+                        name="visibility_toggle"
+                        {{ old('visibility', $letter->visibility ?? 'private') === 'public' ? 'checked' : '' }}>
+                    <label class="form-check-label" for="visibility-toggle">
+                        <span id="visibility-label">
+                            {{ old('visibility', $letter->visibility ?? 'public') === 'public' ? 'Public' : 'Private' }}
+                        </span>
+                    </label>
+                </div>
+
+                <input type="hidden" name="visibility" id="visibility-hidden" 
+                    value="{{ old('visibility', $letter->visibility ?? 'private') }}">
+            </div>
             <input type="hidden" name="color" id="selected-color-input" value="{{ old('color', $letter->color ?? '') }}">
             <button type="submit">Submit Letter</button>
         </div>
+        
 
+        
         <div class="form-right">
+            
             <div class="color-grid">
                 @foreach([
                     '#A4B0F5', '#C4B7CB', '#BBC7CE', '#98E2C6',
@@ -53,7 +77,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        min-height: 100vh; /* Full screen height */
+        min-height: 100vh; 
         padding: 40px 20px;
         box-sizing: border-box;
     }
@@ -170,8 +194,24 @@
                 alert("Please select a color before submitting.");
             }
         });
+
+        const toggle = document.getElementById('visibility-toggle');
+        const label = document.getElementById('visibility-label');
+        const hiddenInput = document.getElementById('visibility-hidden');
+
+        function syncVisibility() {
+            if (toggle.checked) {
+                label.textContent = 'Public';
+                hiddenInput.value = 'public';
+            } else {
+                label.textContent = 'Private';
+                hiddenInput.value = 'private';
+            }
+        }
+        console.log(hiddenInput);
+
+        syncVisibility();
+        toggle.addEventListener('change', syncVisibility);
     });
-
-
 </script>
 @endsection
