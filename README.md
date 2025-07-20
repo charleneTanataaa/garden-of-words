@@ -45,7 +45,7 @@ php artisan serve
 ```
 
 ## Usage ⚒️
-- Visit the app at (https://localhost:8000/). 
+- Visit the app at http://localhost:8000. 
 - Register a new account or login using seeder account:
   - username = testuser1
   - password = password.
