@@ -9,7 +9,7 @@
 @if(Auth::check())  
   <div class="d-flex justify-content-center mt-4 gap-5">
     <a class="btn btn-green px-5 py-3 fs-5" href="{{ route('letter.create') }}">Create Garden</a>
-    <a class="btn btn-green px-5 py-3 fs-5" href="/letters">Visit Garden</a>
+    <a class="btn btn-green px-5 py-3 fs-5" href="/garden">Visit Garden</a>
   </div>
 @else
   <div class="d-flex justify-content-center mt-4 gap-5">

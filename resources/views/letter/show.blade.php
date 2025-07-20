@@ -11,12 +11,17 @@
         <a href="{{ route('letter.create') }}" class="btn">Write New Letter</a>
     </div>
 
-    <div style="padding-top: 120px;">
-    <form action="{{ route('letter.search') }}" method="GET" class="mb-4 d-flex justify-content-center">
-        <input type="text" name="query" placeholder="Search letters..." class="form-control w-50 me-2" value="{{ request('query') }}">
-        <button type="submit" class="btn btn-primary">Search</button>
-    </form>
+    <div class="px-5" style="padding-top: 120px;">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <form action="{{ route('letter.search') }}" method="GET" class="d-flex" style="flex: 1;">
+                <input type="text" name="query" placeholder="Search letters..." class="form-control w-50 me-2" value="{{ request('query') }}">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+
+            <a href="{{ route('letter.show') }}" class="btn ms-3">My Letter</a>
+        </div>
     </div>
+
 
     <div class="container mt-2">
         <form action="{{ request()->routeIs('letter.all') ? route('letter.all') : route('letter.show') }}" method="GET">           
