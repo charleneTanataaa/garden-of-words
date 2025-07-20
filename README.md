@@ -7,6 +7,8 @@ We’re a small project with a big mission: to help people write more and scroll
 
 With a sprinkle of sunshine and a garden full of prompts, we’re helping writing habits take root, turning “I should write more” into “I’m blooming with ideas!”
 
+Write a letter everyday and for each day, watch your flower grows bloomer and bloomer. 
+
 ## Installation 🚀
 1. Clone the project using the link provided by Github.
 ```bash
@@ -45,10 +47,11 @@ php artisan serve
 ```
 
 ## Usage ⚒️
-- Visit the app at http://localhost:8000. 
+- Visit the app at http://localhost:8000 (or whatever localhost is running). 
 - Register a new account or login using seeder account:
   - Username = testuser1
   - Password = password
+P.S or make your very own account
 - Start writing and watch your garden grow!!!
 
 ## Features 📦
@@ -58,7 +61,7 @@ php artisan serve
   - Email 
   - Username
   - Password 
-  - Flower of your choice. 
+  - Flower of your choice (Choose wisely, no changing allowed).
 - Daily writing: Write a letter every day to grow your flower (You can choose the color of your letter.)
 - Garden view: Track all the flowers that you've grown
 - Letters consists of:
