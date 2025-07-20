@@ -37,7 +37,7 @@ class LetterController extends Controller
         $user = Auth::user();
         $garden = Garden::where('user_id', $user->id)->latest()->first();
 
-        if (!$garden || $garden->count >= 7) {
+        if (!$garden || $garden->count >= 14) {
             Garden::create([
                 'user_id' => $user->id,
                 'flower_id' => $user->selected_flower_id, 

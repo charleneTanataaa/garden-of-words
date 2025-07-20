@@ -1,25 +1,33 @@
 @extends('layouts.app')
 
 @section('content')
-@if(Auth::check())
     <div class="nav-letter">
-        <form method="post" action="{{ route('logout') }}">
-            @csrf
-            <a href="{{ route('homepage') }}" class="btn">← Back</a>
-        </form>
+        @if(Auth::check())
+        <a href="{{ route('homepage') }}" class="btn">← Back</a>
         <h1 style="text-align:center; margin: 10px;">{{ $heading }}</h1>
         <a href="{{ route('letter.create') }}" class="btn">Write New Letter</a>
+        @else
+            <a href="{{ route('homepage') }}" class="btn">← Back</a>
+            <h1 style="text-align:center; margin: 10px;">{{ $heading }}</h1>
+            <a style="hidden"></a>
+        @endif
     </div>
 
     <div class="px-5" style="padding-top: 120px;">
+        @if (Auth::check())
         <div class="d-flex justify-content-between align-items-center mb-4">
             <form action="{{ route('letter.search') }}" method="GET" class="d-flex" style="flex: 1;">
                 <input type="text" name="query" placeholder="Search letters..." class="form-control w-50 me-2" value="{{ request('query') }}">
                 <button type="submit" class="btn btn-primary">Search</button>
             </form>
-
-            <a href="{{ route('letter.show') }}" class="btn ms-3">My Letter</a>
+            @if($heading == "My Letters")
+                <a href="{{ route('letter.all') }}" class="btn ms-3">Community Letter</a>
+            @else
+                <a href="{{ route('letter.show') }}" class="btn ms-3">My Letter</a>
+            @endif
+            <a href="{{ route('garden') }}" class="btn ms-3">My Garden</a>
         </div>
+        @endif
     </div>
 
 
@@ -83,9 +91,7 @@
             @endforeach
         @endif
     </div>
-@else
-    <script>window.location.href = "{{ route('login.form') }}";</script>
-@endif
+
 
 <style>
     #container_letter {

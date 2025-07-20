@@ -2,12 +2,10 @@
 
 @section('content')
     <div class="nav-letter">
-        <form method="post" action="{{ route('logout') }}">
-            @csrf
-            <a href="{{ route('homepage') }}" class="btn">← Back</a>
-        </form>
+        <a href="{{ url()->previous() }}" class="btn">← Yey</a>
         <h1 style="text-align:center; margin: 10px;">Your Garden</h1>
         <a href="{{ route('letter.create') }}" class="btn">Write New Letter</a>
+        <a href="{{ route('letter.show') }}" class="btn">My Letter</a>
     </div>
 
     <div class="garden-content">

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<a href="{{  route('homepage') }}" class="back-link">← Back</a>
+<a href="{{  url()->previous() }}" class="back-link">← Back</a>
 
 <div class="d-flex justify-content-center align-items-center vh-100" style="background-color: #ffd6d6;">
     <div class="card p-4 shadow" style="width: 100%; max-width: 450px; border-radius: 15px;">

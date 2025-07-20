@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<a href="{{  route('register.email.form') }}" class="back-link">← Back</a>
+<a href="{{  url()->previous() }}" class="back-link">← Back</a>
 
 <div class="d-flex justify-content-center align-items-center vh-100" style="background-color: #fff6f6;">
     <div class="card p-4 shadow" 

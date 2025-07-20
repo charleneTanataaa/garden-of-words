@@ -25,14 +25,12 @@ Route::get('/about', [StaticPageController::class, 'about'])->name('about');
 Route::middleware('auth')->group(function () {
     Route::get('/letter/create', [LetterController::class, 'create'])->name('letter.create');
     Route::post('/letter/store', [LetterController::class, 'store'])->name('letter.store');
-
     Route::get('/letter/{letter}/edit', [LetterController::class, 'edit'])->name('letter.edit');
     Route::put('/letter/{letter}', [LetterController::class, 'update'])->name('letter.update');
+    Route::delete('/letter/{letter}', [LetterController::class, 'destroy'])->name('letter.destroy');
+    Route::get('/letters', [LetterController::class, 'show'])->name('letter.show');
+    Route::get('/letters/search', [LetterController::class, 'search'])->name('letter.search');
 });
 
-Route::delete('/letter/{letter}', [LetterController::class, 'destroy'])->name('letter.destroy');
-Route::get('/letters', [LetterController::class, 'show'])->name('letter.show');
 Route::get('/letters/all', [LetterController::class, 'showAll'])->name('letter.all');
-Route::get('/letters/search', [LetterController::class, 'search'])->name('letter.search');
-
 Route::get('/garden', [GardenController::class, 'index'])->name('garden');
