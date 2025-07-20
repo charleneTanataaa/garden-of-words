@@ -60,7 +60,7 @@
         <div class="right-panel">
             <h2>Your Flower Shelf</h2>
             <div class="flower-shelf">
-                @forelse ($gardens as $garden)
+                @forelse ($gardens->sortByDesc('created_at') as $garden)
                     @php $flower = $garden->flower; @endphp
                     <div class="shelf-item">
                         <img src="{{ asset('images/' . ($garden->count == 14 ? $flower->image : 'leaves.png')) }}"

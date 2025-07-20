@@ -41,7 +41,7 @@
   color: white;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 100px) {
   .navbar-toggler {
     display: block;
   }
