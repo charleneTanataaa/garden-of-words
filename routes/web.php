@@ -34,3 +34,6 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/letters/all', [LetterController::class, 'showAll'])->name('letter.all');
 Route::get('/garden', [GardenController::class, 'index'])->name('garden');
+
+Route::get('/profile/edit', [AuthController::class, 'edit'])->name('profile.edit');
+Route::post('/profile/update', [AuthController::class, 'update'])->name('profile.update');

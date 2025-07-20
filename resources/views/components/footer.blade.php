@@ -11,6 +11,11 @@
         <strong>Links</strong><br>
         <a href="/" class="text-white d-block">Home</a>
         <a href="/about" class="text-white d-block">About Us</a>
+        @if(Auth::check())
+            <a href="{{ route("profile.edit") }}" class="text-white d-block">Profile</a>
+        @else
+            <a href="{{ route("register.email.form") }}" class="text-white d-block">Sign Up</a>
+            @endif
         </div>
     </div>
     <div class="mt-3">

@@ -17,10 +17,11 @@
           </li>
           <li class="nav-item">
             @if(Auth::check())
-              <form action="{{ route('logout') }}" method="POST" style="display:inline;">
+              <a class="nav-link text-white" href="/profile/edit">Profile</a>
+              {{-- <form action="{{ route('logout') }}" method="POST" style="display:inline;">
                 @csrf
                 <button type="submit" class="btn" style="background-color: #F8F3BA;">Logout</button>
-              </form>
+              </form> --}}
             @else
               <a class="btn" style="background-color: #F8F3BA;" href="{{ route('register.email.form') }}">Sign Up</a>
             @endif
@@ -39,6 +40,14 @@
   background: none;
   border: none;
   color: white;
+}
+
+.nav-link{
+  transition: text-decoration 0.9s ease;
+}
+.nav-link:hover{
+  text-decoration:underline;
+  text-decoration-color:white;
 }
 
 @media (max-width: 100px) {

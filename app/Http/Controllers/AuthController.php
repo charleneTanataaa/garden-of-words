@@ -91,5 +91,30 @@ class AuthController extends Controller
         Session::forget(['register.email', 'register.otp']);
         return redirect()->route('garden');
     }
+    public function edit() {
+        return view('profile');
+    }
+
+    public function update(Request $request) {
+        $user = Auth::user();
+
+        $request->validate([
+            'username' => 'nullable|string|max:255|unique:users',
+            'email' => 'nullable|string|email|max:255|unique:users,email,' . $user->id,
+            'password' => 'nullable|string|min:8|confirmed',
+        ]);
+        if($request->filled('username')) { 
+            $user->username = $request->username;
+        }
+        if($request->filled('email')) { 
+            $user->email = $request->email;
+        }
+        if ($request->filled('password')) {
+            $user->password = Hash::make($request->password);
+        }
+        $user->save();
+
+        return redirect()->back()->with('success', 'Profile updated successfully.');
+    }
     
 }
