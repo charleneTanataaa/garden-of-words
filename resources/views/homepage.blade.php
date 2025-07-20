@@ -30,7 +30,7 @@
         With a sprinkle of sunshine and a garden full of prompts, we’re helping writing habits take root, turning “I should write more” into “I’m blooming with ideas!”
       </p>
     </div>
-    <div class="col-md-6 bg-danger-subtle">
+    <div class="col-md-6 bg-danger-subtle" style="background-image:url('{{ asset('images/content.png') }}'); background-size: cover; background-position: center; height: 300px; ">
     </div>
   </div>
 </div>

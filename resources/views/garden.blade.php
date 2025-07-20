@@ -55,8 +55,6 @@
             @endforelse
         </div>
 
-
-        {{-- Right Panel: Flower Shelf --}}
         <div class="right-panel">
             <h2>Your Flower Shelf</h2>
             <div class="flower-shelf">
