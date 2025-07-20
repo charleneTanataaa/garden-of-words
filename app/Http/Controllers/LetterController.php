@@ -27,15 +27,19 @@ class LetterController extends Controller
             'visibility' => 'required|in:public,private',
         ]);
 
+        $user = Auth::user();
+
         Letter::create([
-            'user_id' => Auth::id(),
+            'user_id' => $user->id,
             'title' => $request->title,
             'content' => $request->content,
             'color' => $request->color,
             'visibility' => $request->visibility,
         ]);
-        $user = Auth::user();
+        
         $garden = Garden::where('user_id', $user->id)->latest()->first();
+        $hasWrittenToday = Letter::where('user_id', $user->id)->whereDate('created_at', now()->toDateString())
+        ->exists();
 
         if (!$garden || $garden->count >= 14) {
             Garden::create([
@@ -44,9 +48,10 @@ class LetterController extends Controller
                 'date_grown' => now(),
                 'count' => 1,
             ]);
-        } else {
+        } elseif(!$hasWrittenToday){
             $garden->increment('count');
         }
+        
         $redirect = session('letter_prev_url', route('letter.show'));
         session()->forget('letter_prev_url');
         return redirect($redirect)->with('success', 'Letter saved!');

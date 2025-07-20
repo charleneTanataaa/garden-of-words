@@ -2,13 +2,15 @@
 
 @section('content')
     <div class="nav-letter">
-        @if(Auth::check())
-        <a href="{{ route('homepage') }}" class="btn">← Back</a>
+        <a href="{{ route('homepage') }}" class="btn">← Back To Home</a>
         <h1 style="text-align:center; margin: 10px;">{{ $heading }}</h1>
-        <a href="{{ route('letter.create') }}" class="btn">Write New Letter</a>
+        @if(Auth::check())
+    
+        <div class="nav-right">
+            <a href="{{ route('garden') }}" class="btn ms-3">My Garden</a>
+            <a href="{{ route('letter.create') }}" class="btn">Write New Letter</a>
+        </div>
         @else
-            <a href="{{ route('homepage') }}" class="btn">← Back</a>
-            <h1 style="text-align:center; margin: 10px;">{{ $heading }}</h1>
             <a style="hidden"></a>
         @endif
     </div>
@@ -25,7 +27,7 @@
             @else
                 <a href="{{ route('letter.show') }}" class="btn ms-3">My Letter</a>
             @endif
-            <a href="{{ route('garden') }}" class="btn ms-3">My Garden</a>
+            
         </div>
         @endif
     </div>
@@ -166,6 +168,11 @@
         width: 100%;
         background-color: white;
         z-index: 10;
+    }
+
+    .nav-right {
+        display: flex;
+        gap: 10px;
     }
 </style>
 @endsection
