@@ -24,7 +24,7 @@ npm run build
 ```
 4. Create .env file.
 ```bash
-cp .env.example .env.
+cp .env.example .env
 ```
 5. Generate the application key.
 ```bash
@@ -37,7 +37,7 @@ DB_PASSWORD=your_password
 ```
 7. Run migrations and seeders.
 ```bash
-php artisan migrate --seed.
+php artisan migrate --seed
 ```
 8. Start server.
 ```bash
@@ -47,8 +47,8 @@ php artisan serve
 ## Usage ⚒️
 - Visit the app at http://localhost:8000. 
 - Register a new account or login using seeder account:
-  - username = testuser1
-  - password = password.
+  - Username = testuser1
+  - Password = password
 - Start writing and watch your garden grow!!!
 
 ## Features 📦
