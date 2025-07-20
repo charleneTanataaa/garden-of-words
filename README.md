@@ -1,61 +1,79 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Garden of Words
+We’re a small project with a big mission: to help people write more and scroll less. Whether it’s journaling, storytelling, or just getting your thoughts out, we’re here to make writing easy, fun, and part of your daily routine.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+With a sprinkle of sunshine and a garden full of prompts, we’re helping writing habits take root, turning “I should write more” into “I’m blooming with ideas!”
 
-## About Laravel
+## Instalation
+1. Clone the project using the link provided by Github.
+```bash
+git clone https://github.com/charleneTanataaa/garden-of-words.git
+```
+2. Open the terminal in your root directory of Garden of Words.
+```bash
+cd garden-of-words
+```
+3. Install dependencies.
+```bash
+composer install
+npm install
+npm run build
+```
+4. Create .env file.
+```bash
+cp .env.example .env.
+```
+5. Generate the application key.
+```bash
+php artisan key:generate
+```
+6. Set up database in .env file and make sure MySQL is on.
+```bash
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
+```
+7. Run migrations and seeders.
+```bash
+php artisan migrate --seed.
+```
+8. Start server.
+```bash
+php artisan serve
+```
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Usage
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Visit the app at (https://localhost:8000/). 
+- Register a new account or login using seeder account:
+  - username = testuser1
+  - password = password.
+- Start writing and watch your garden grow!!!
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Features
+- Home Page: A simple introduction and links to sign up!
+- About us: Learn more about the motivation and how the app works.
+- Sign Up and Login: Create an account with:
+  - Email 
+  - Username
+  - Password 
+  - Flower of your choice. 
+- Daily writing: Write a letter every day to grow your flower (You can choose the color of your letter.)
+- Garden view: Track all the flowers that you've grown
+- Letters consists of:
+  - Title
+  - Content
+  - Color of your choice (We have 9 pretty colors to choose from)
+  - Public/Private (Choose whether or not to share your letters with the community!)
+- Search, Sort, & Filter: Easily find letters by date and titles
+- Pagination: Browse all your letters page by page.
+- Write, update, and delete: You can write, update, and delete your letters.
+- Community Letters: Public letters shared by users.
 
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## Tech Stack
+- Laravel
+- MySQL
+- Blade
+- Bootstrap
 
 ## Contributing
+Contributions are welcome! If you have suggestions, bug fixes, or new features, feel free to open an issue or submit a pull request.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
