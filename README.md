@@ -73,6 +73,7 @@ P.S or make your very own account
 - Pagination: Browse all your letters page by page.
 - Write, update, and delete: You can write, update, and delete your letters.
 - Community Letters: Public letters shared by users.
+- Profile: Allows you to update your username, password, and email. 
 
 ## Tech Stack 🖥️
 - Laravel
