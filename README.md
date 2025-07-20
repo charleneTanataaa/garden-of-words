@@ -1,9 +1,13 @@
-# Garden of Words
+<p align="center">
+  <img src="public/images/main_logo.png" alt="Garden" width="300">
+</p>
+
+# Garden of Words 
 We’re a small project with a big mission: to help people write more and scroll less. Whether it’s journaling, storytelling, or just getting your thoughts out, we’re here to make writing easy, fun, and part of your daily routine.
 
 With a sprinkle of sunshine and a garden full of prompts, we’re helping writing habits take root, turning “I should write more” into “I’m blooming with ideas!”
 
-## Instalation
+## Instalation 🚀
 1. Clone the project using the link provided by Github.
 ```bash
 git clone https://github.com/charleneTanataaa/garden-of-words.git
@@ -40,15 +44,14 @@ php artisan migrate --seed.
 php artisan serve
 ```
 
-## Usage
-
-- Visit the app at (https://localhost:8000/). 
+## Usage ⚒️
+- Visit the app at http://localhost:8000. 
 - Register a new account or login using seeder account:
   - username = testuser1
   - password = password.
 - Start writing and watch your garden grow!!!
 
-## Features 
+## Features 📦
 - Home Page: A simple introduction and links to sign up!
 - About us: Learn more about the motivation and how the app works.
 - Sign Up and Login: Create an account with:
@@ -68,12 +71,11 @@ php artisan serve
 - Write, update, and delete: You can write, update, and delete your letters.
 - Community Letters: Public letters shared by users.
 
-## Tech Stack
+## Tech Stack 🖥️
 - Laravel
 - MySQL
 - Blade
 - Bootstrap
 
-## Contributing
+## Contributing 🦸
 Contributions are welcome! If you have suggestions, bug fixes, or new features, feel free to open an issue or submit a pull request.
-
