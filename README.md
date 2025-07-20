@@ -7,7 +7,7 @@ We’re a small project with a big mission: to help people write more and scroll
 
 With a sprinkle of sunshine and a garden full of prompts, we’re helping writing habits take root, turning “I should write more” into “I’m blooming with ideas!”
 
-## Instalation 🚀
+## Installation 🚀
 1. Clone the project using the link provided by Github.
 ```bash
 git clone https://github.com/charleneTanataaa/garden-of-words.git
