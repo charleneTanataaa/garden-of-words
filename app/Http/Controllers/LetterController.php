@@ -68,7 +68,7 @@ class LetterController extends Controller
         $sortDirection = $request->input('sort', 'asc');
         $query->orderBy('created_at', $sortDirection);
 
-        $letters = $query->get();
+        $letters = $query->paginate(9)->withQueryString();
         $heading = 'My Letters';
 
         return view('letter.show', compact('letters', 'heading'));
@@ -109,7 +109,7 @@ class LetterController extends Controller
         $sortDirection = $request->input('sort', 'asc');
         $query->orderBy('created_at', $sortDirection);
 
-        $letters = $query->get();
+        $letters = $query->paginate(9)->withQueryString();
         $heading = 'Community Letters';
 
         return view('letter.show', compact('letters', 'heading'));
@@ -128,6 +128,7 @@ class LetterController extends Controller
             }
         })->where('title', 'LIKE', "%{$queryText}%")
         ->orderBy('created_at', 'desc')
+        ->paginate(9)
         ->get();
 
         $heading = Auth::check() ? 'Search Results' : 'Public Search Results';

@@ -94,6 +94,19 @@
         @endif
     </div>
 
+    <div class="d-flex flex-column align-items-center m-5">
+        @if ($letters->count())
+            <div class="mb-2">
+                <span>
+                    Showing {{ $letters->firstItem() }} to {{ $letters->lastItem() }} of {{ $letters->total() }} results
+                </span>
+            </div>
+        @endif
+        <div>
+            {{ $letters->onEachSide(1)->links('pagination::bootstrap-4') }}
+        </div>
+    </div>
+    <x-footer/>
 
 <style>
     #container_letter {
