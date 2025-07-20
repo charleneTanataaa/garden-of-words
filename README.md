@@ -76,6 +76,3 @@ php artisan serve
 - MySQL
 - Blade
 - Bootstrap
-
-## Contributing 🦸
-Contributions are welcome! If you have suggestions, bug fixes, or new features, feel free to open an issue or submit a pull request.
