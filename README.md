@@ -48,7 +48,7 @@ php artisan serve
   - password = password.
 - Start writing and watch your garden grow!!!
 
-## Features
+## Features 
 - Home Page: A simple introduction and links to sign up!
 - About us: Learn more about the motivation and how the app works.
 - Sign Up and Login: Create an account with:

@@ -4,9 +4,10 @@
       <a class="navbar-brand" href="/">
         <img src="/images/main_logo.png" alt="logo" style="width: 60px;">
       </a>
-
-
-      <div class=" justify-content-end" id="navbarNav" style="z-index: 9999;">
+      <button class="navbar-toggler" type="button" id="navbarToggle">
+        &#9776;
+      </button>
+      <div class="justify-content-end navbar-collapse" id="navbarNav" style="z-index: 9999;">
         <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link text-white" href="/">Home</a>
@@ -30,3 +31,50 @@
   </nav>
   
 </header>
+
+<style>
+.navbar-toggler {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+}
+
+@media (max-width: 1000px) {
+  .navbar-toggler {
+    display: block;
+  }
+
+  .navbar-collapse {
+    display: none;
+    width: 100%;
+    background-color: #d28f8f;
+    margin-top: 10px;
+  }
+
+  .navbar-collapse.show {
+    display: block;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navbar-nav .nav-item {
+    text-align: center;
+  }
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggleBtn = document.getElementById("navbarToggle");
+    const nav = document.getElementById("navbarNav");
+
+    toggleBtn.addEventListener("click", function () {
+      nav.classList.toggle("show");
+    });
+  });
+</script>
