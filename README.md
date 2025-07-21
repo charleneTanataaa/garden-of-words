@@ -51,7 +51,8 @@ php artisan serve
 - Register a new account or login using seeder account:
   - Username = testuser
   - Password = password
-P.S or make your very own account
+    
+    P.S or make your very own account
 - Start writing and watch your garden grow!!!
 
 ## Features 📦
