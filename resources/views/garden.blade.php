@@ -11,7 +11,7 @@
 
 </div>
 
-<div class="garden-content">
+<div class="garden-content" style="min-height:55vh;">
     <div class="split-page">
         <div class="left-panel">
             @forelse ($gardens as $garden)

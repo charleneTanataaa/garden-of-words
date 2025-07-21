@@ -74,8 +74,6 @@ class LetterController extends Controller
         return view('letter.show', compact('letters', 'heading'));
     }
 
-
-
     public function edit(Letter $letter){
         return view('letter.create', compact('letter'));
     }
@@ -129,7 +127,7 @@ class LetterController extends Controller
         })->where('title', 'LIKE', "%{$queryText}%")
         ->orderBy('created_at', 'desc')
         ->paginate(9)
-        ->get();
+        ->withQueryString();
 
         $heading = Auth::check() ? 'Search Results' : 'Public Search Results';
 

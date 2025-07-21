@@ -29,7 +29,7 @@
                 placeholder="Title" required
                 value="{{ old('title', $letter->title ?? '') }}">
         
-            <textarea name="content" id="content" rows="6" maxlength="300" placeholder="Type your letter here..." required>{{ old('content', $letter->content ?? '') }}</textarea>
+            <textarea name="content" id="content" rows="6" maxlength="1000" placeholder="Type your letter here..." required>{{ old('content', $letter->content ?? '') }}</textarea>
             <div class="mb-3">
         </div>
         

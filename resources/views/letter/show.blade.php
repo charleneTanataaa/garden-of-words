@@ -32,8 +32,7 @@
         @endif
     </div>
 
-
-    <div class="container mt-2">
+    <div class="container mt-2" >
         <form action="{{ request()->routeIs('letter.all') ? route('letter.all') : route('letter.show') }}" method="GET">           
                 <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
 
@@ -69,7 +68,7 @@
 
 
 
-    <div id="container_letter">
+    <div id="container_letter" style="min-height:35vh;">
         @if($letters->isEmpty())
             <p>No letters found.</p>
         @else

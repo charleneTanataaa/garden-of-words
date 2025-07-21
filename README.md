@@ -49,7 +49,7 @@ php artisan serve
 ## Usage ⚒️
 - Visit the app at http://localhost:8000 (or whatever localhost is running). 
 - Register a new account or login using seeder account:
-  - Username = testuser1
+  - Username = testuser
   - Password = password
 P.S or make your very own account
 - Start writing and watch your garden grow!!!
